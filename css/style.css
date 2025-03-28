@@ -311,3 +311,18 @@ body {
     margin: 0;
     background: linear-gradient(135deg, #1e90ff, #00bfff); /* Dégradé bleu pour un design attractif */
 }
+
+/* Bouton de suppression */
+.delete-btn {
+    padding: 8px 15px;
+    background: #dc3545;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+}

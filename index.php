@@ -6,6 +6,7 @@
     <title>Gaming Posters - Affiches PS4/PS5</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
     <header class="main-header">
