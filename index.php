@@ -50,11 +50,10 @@
                             <div class="poster-card">
                                 <img src="images/<?php echo htmlspecialchars($row['file']); ?>" alt="Image" class="zoomable-image">
                                 <h3><?php echo htmlspecialchars(pathinfo($row['file'], PATHINFO_FILENAME)); ?></h3>
-                                <a href="https://wa.me/message/M5I2V2YUBTISK1?src=qr" class="order-btn">Commander</a>
+                                <a href="https://wa.me/?text=<?php echo urlencode('Je souhaite commander : ' . pathinfo($row['file'], PATHINFO_FILENAME)); ?>" class="order-btn">Commander</a>
                             </div>
                             <?php
                         }
-
                         // Si aucun résultat n'est trouvé
                         if (!$resultsFound) {
                             echo '<p class="no-results">L\'article que vous recherchez n\'est pas disponible pour le moment.</p>';

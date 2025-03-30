@@ -194,12 +194,14 @@ body {
 }
 
 #image-zoom-container img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    max-width: 90%; /* L'image occupe au maximum 90% de la largeur de l'écran */
+    max-height: 90%; /* L'image occupe au maximum 90% de la hauteur de l'écran */
+    object-fit: contain; /* Conserve les proportions de l'image sans la déformer */
+    border-radius: 8px; /* Ajoute des coins arrondis */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2); /* Ajoute une ombre légère */
 }
 
+/* Bouton de fermeture du zoom */
 #close-zoom {
     position: absolute;
     top: 20px;
