@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 .env
 config.php
+images/
 # C extensions
 *.so
 
