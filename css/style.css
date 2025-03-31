@@ -98,11 +98,14 @@ body {
 
 /* Carte d'affiche */
 .poster-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     background: #1e1e2f;
     border: 1px solid #333;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    text-align: center;
     padding: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -113,14 +116,22 @@ body {
 }
 
 .poster-card img {
-    width: 100%; /* L'image occupe toute la largeur de son conteneur */
-    height: auto; /* Conserve les proportions de l'image */
-    max-width: 100%; /* S'assure que l'image ne dépasse pas la largeur du conteneur */
-    max-height: 100%; /* S'assure que l'image ne dépasse pas la hauteur du conteneur */
-    object-fit: contain; /* Affiche l'image entièrement sans la couper */
-    border-radius: 8px; /* Ajoute des coins arrondis */
-    margin: 0 auto; /* Centre l'image horizontalement */
-    display: block; /* Assure un bon centrage */
+    width: 100%;
+    /* L'image occupe toute la largeur de son conteneur */
+    height: auto;
+    /* Conserve les proportions de l'image */
+    max-width: 100%;
+    /* S'assure que l'image ne dépasse pas la largeur du conteneur */
+    max-height: 100%;
+    /* S'assure que l'image ne dépasse pas la hauteur du conteneur */
+    object-fit: contain;
+    /* Affiche l'image entièrement sans la couper */
+    border-radius: 8px;
+    /* Ajoute des coins arrondis */
+    margin: 0 auto;
+    /* Centre l'image horizontalement */
+    display: block;
+    /* Assure un bon centrage */
 }
 
 .poster-card h3 {
@@ -129,20 +140,52 @@ body {
     color: #00bfff;
 }
 
-.order-btn {
-    display: inline-block;
+.poster-card .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     margin-top: 10px;
-    padding: 10px 20px;
-    background: #007bff;
-    color: white;
+}
+
+.order-btn {
     text-decoration: none;
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: white;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 14px;
     transition: background 0.3s ease;
 }
 
 .order-btn:hover {
     background: #0056b3;
+}
+
+/* Bouton de like */
+.like-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.like-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.like-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.like-count {
+    font-weight: bold;
+    color: #007bff;
+    margin-left: 5px;
 }
 
 /* Footer */
@@ -194,11 +237,16 @@ body {
 }
 
 #image-zoom-container img {
-    max-width: 90%; /* L'image occupe au maximum 90% de la largeur de l'écran */
-    max-height: 90%; /* L'image occupe au maximum 90% de la hauteur de l'écran */
-    object-fit: contain; /* Conserve les proportions de l'image sans la déformer */
-    border-radius: 8px; /* Ajoute des coins arrondis */
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2); /* Ajoute une ombre légère */
+    max-width: 90%;
+    /* L'image occupe au maximum 90% de la largeur de l'écran */
+    max-height: 90%;
+    /* L'image occupe au maximum 90% de la hauteur de l'écran */
+    object-fit: contain;
+    /* Conserve les proportions de l'image sans la déformer */
+    border-radius: 8px;
+    /* Ajoute des coins arrondis */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    /* Ajoute une ombre légère */
 }
 
 /* Bouton de fermeture du zoom */
@@ -214,24 +262,36 @@ body {
 
 /* Timer des promotions */
 .promo-timer {
-    font-size: 1.8rem; /* Augmente la taille de la police */
-    color: #ff0000; /* Rouge vif pour attirer l'attention */
-    font-weight: bold; /* Met le texte en gras */
+    font-size: 1.8rem;
+    /* Augmente la taille de la police */
+    color: #ff0000;
+    /* Rouge vif pour attirer l'attention */
+    font-weight: bold;
+    /* Met le texte en gras */
     text-align: center;
     margin-bottom: 20px;
 }
 
 /* Message pour aucun résultat */
 .no-results {
-    font-size: 2rem; /* Augmente la taille de la police */
-    color: #ff0000; /* Rouge vif pour attirer l'attention */
-    font-weight: bold; /* Met le texte en gras */
-    text-align: center; /* Centre le texte */
-    margin-top: 30px; /* Ajoute un espace au-dessus */
-    background-color: #ffecec; /* Fond rouge clair pour plus de visibilité */
-    padding: 20px; /* Ajoute de l'espace autour du texte */
-    border: 2px solid #ff0000; /* Ajoute une bordure rouge */
-    border-radius: 10px; /* Arrondit les coins */
+    font-size: 2rem;
+    /* Augmente la taille de la police */
+    color: #ff0000;
+    /* Rouge vif pour attirer l'attention */
+    font-weight: bold;
+    /* Met le texte en gras */
+    text-align: center;
+    /* Centre le texte */
+    margin-top: 30px;
+    /* Ajoute un espace au-dessus */
+    background-color: #ffecec;
+    /* Fond rouge clair pour plus de visibilité */
+    padding: 20px;
+    /* Ajoute de l'espace autour du texte */
+    border: 2px solid #ff0000;
+    /* Ajoute une bordure rouge */
+    border-radius: 10px;
+    /* Arrondit les coins */
 }
 
 /* Styles pour la page upload.php */
@@ -311,7 +371,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(135deg, #1e90ff, #00bfff); /* Dégradé bleu pour un design attractif */
+    background: linear-gradient(135deg, #1e90ff, #00bfff);
+    /* Dégradé bleu pour un design attractif */
 }
 
 /* Bouton de suppression */

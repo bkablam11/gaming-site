@@ -47,10 +47,16 @@
                         while ($row = $query->fetch()) {
                             $resultsFound = true; // Résultat trouvé
                             ?>
-                            <div class="poster-card">
+                            <div class="poster-card" style="text-align: center;">
                                 <img src="images/<?php echo htmlspecialchars($row['file']); ?>" alt="Image" class="zoomable-image">
                                 <h3><?php echo htmlspecialchars(pathinfo($row['file'], PATHINFO_FILENAME)); ?></h3>
-                                <a href="https://wa.me/?text=<?php echo urlencode('Je souhaite commander : ' . pathinfo($row['file'], PATHINFO_FILENAME)); ?>" class="order-btn">Commander</a>
+                                <div class="actions" style="display: inline-flex; align-items: center; gap: 10px; justify-content: center; margin-top: 10px;">
+                                    <a href="https://wa.me/message/M5I2V2YUBTISK1?src=qr&text=<?php echo urlencode('Je souhaite commander : ' . pathinfo($row['file'], PATHINFO_FILENAME)); ?>" class="order-btn">Commander</a>
+                                    <button class="like-btn" data-id="<?php echo $row['id']; ?>" style="display: flex; align-items: center;">
+                                        <img src="icons/thumb-up-blue.png" alt="Pouce bleu" class="like-icon" style="margin-right: 5px;">
+                                        <span class="like-count" id="like-count-<?php echo $row['id']; ?>"><?php echo $row['likes']; ?></span> Likes
+                                    </button>
+                                </div>
                             </div>
                             <?php
                         }
@@ -80,6 +86,31 @@
         </div>
     </footer>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const likeButtons = document.querySelectorAll('.like-btn');
+        likeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const posterId = button.getAttribute('data-id');
+                fetch('like.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: `id=${posterId}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const likeCount = document.getElementById(`like-count-${posterId}`);
+                        likeCount.textContent = data.likes;
+                    } else {
+                        alert('Erreur lors de l\'ajout du j\'aime.');
+                    }
+                })
+                .catch(error => console.error('Erreur:', error));
+            });
+        });
+    });
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>
