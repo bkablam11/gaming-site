@@ -48,8 +48,8 @@ body {
 
 /* Header for index.php */
 .main-header.index-header {
-    background: linear-gradient(135deg, #ff4d4d, #ff0000);
-    /* Red gradient for index.php */
+    background: linear-gradient(135deg, #914dff, #002fff);
+    /* Dégradé rouge */
     color: white;
 }
 

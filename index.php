@@ -12,7 +12,7 @@
     <header class="main-header index-header">
         <div class="container">
             <img src="logo/logo.png" alt="Gaming Posters Logo" class="logo">
-            <h1>Digital Games PS</h1>
+            <h1>Digital Games PS+</h1>
             <p>Affiches exclusives pour jeux PS4 et PS5</p>
         </div>
     </header>
