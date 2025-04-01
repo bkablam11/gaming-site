@@ -46,7 +46,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body class="upload-page">
     <div class="upload-container">
+        <img src="logo/logo.png" alt="Gaming Logo" class="logo">
         <h1>Upload d'images</h1>
+        <p>Ajoutez des images de vos jeux PS4 et PS5 préférés avec une description.</p>
         <form method="POST" enctype="multipart/form-data">
             <label for="images">Choisissez des images :</label>
             <input type="file" name="images[]" id="images" accept="image/*" multiple required>

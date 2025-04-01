@@ -285,22 +285,46 @@ body {
 }
 
 /* Styles pour la page upload.php */
+.upload-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #1e90ff, #00bfff);
+    color: #fff;
+    text-align: center;
+}
 
 .upload-container {
-    background: #fff;
-    color: #333;
+    background: #003152;
+    color: #eaeaea;
+    /* Couleur du texte plus claire */
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     text-align: center;
     width: 100%;
     max-width: 500px;
 }
 
+.upload-container img.logo {
+    max-width: 120px;
+    margin-bottom: 20px;
+}
+
 .upload-container h1 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #1e90ff;
+    color: #00bfff;
+    /* Couleur bleue vibrante */
+}
+
+.upload-container p {
+    font-size: 1rem;
+    color: #d1d1d1;
+    /* Couleur douce pour le texte secondaire */
 }
 
 .upload-container form {
@@ -312,7 +336,8 @@ body {
 .upload-container label {
     font-size: 1rem;
     font-weight: bold;
-    color: #333;
+    color: #eaeaea;
+    /* Couleur claire pour les labels */
 }
 
 .upload-container input[type="file"] {
@@ -321,6 +346,8 @@ body {
     border-radius: 5px;
     font-size: 1rem;
     background: #f9f9f9;
+    color: #333;
+    /* Couleur du texte dans l'input */
     cursor: pointer;
 }
 
@@ -348,10 +375,12 @@ body {
 
 .message.success {
     color: #28a745;
+    /* Vert pour les messages de succès */
 }
 
 .message.error {
     color: #dc3545;
+    /* Rouge pour les messages d'erreur */
 }
 
 /* Centrer uniquement la page upload.php */
