@@ -9,10 +9,10 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <header class="main-header">
+    <header class="main-header index-header">
         <div class="container">
             <img src="logo/logo.png" alt="Gaming Posters Logo" class="logo">
-            <h1>Gaming Posters</h1>
+            <h1>Digital Games PS</h1>
             <p>Affiches exclusives pour jeux PS4 et PS5</p>
         </div>
     </header>
@@ -51,7 +51,7 @@
                                 <img src="images/<?php echo htmlspecialchars($row['file']); ?>" alt="Image" class="zoomable-image">
                                 <h3><?php echo htmlspecialchars(pathinfo($row['file'], PATHINFO_FILENAME)); ?></h3>
                                 <div class="actions" style="display: inline-flex; align-items: center; gap: 10px; justify-content: center; margin-top: 10px;">
-                                    <a href="https://wa.me/message/M5I2V2YUBTISK1?src=qr&text=<?php echo urlencode('Je souhaite commander : ' . pathinfo($row['file'], PATHINFO_FILENAME)); ?>" class="order-btn">Commander</a>
+                                    <a href="https://wa.me/?text=<?php echo urlencode('Je souhaite commander : ' . pathinfo($row['file'], PATHINFO_FILENAME)); ?>" class="order-btn">Commander</a>
                                     <button class="like-btn" data-id="<?php echo $row['id']; ?>" style="display: flex; align-items: center;">
                                         <img src="icons/thumb-up-blue.png" alt="Pouce bleu" class="like-icon" style="margin-right: 5px;">
                                         <span class="like-count" id="like-count-<?php echo $row['id']; ?>"><?php echo $row['likes']; ?></span> Likes

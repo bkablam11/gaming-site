@@ -1,31 +1,88 @@
-<?php
-include('dbconnection.php'); // Inclure la connexion à la base de données
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supprimer les Likes - Gaming Posters</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1>Supprimer les Likes</h1>
+            <p>Gérez les likes de vos affiches préférées</p>
+        </div>
+    </header>
 
-// Vérifier si la requête est de type POST
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+    <main>
+        <section class="featured-posters">
+            <div class="container">
+                <h2>Affiches disponibles</h2>
+                <div class="poster-grid">
+                    <?php
+                    include('dbconnection.php'); // Inclure la connexion à la base de données
 
-    if ($id > 0) {
-        try {
-            // Réduire le nombre de likes de l'image donnée
-            $query = $pdo->prepare("UPDATE images SET likes = GREATEST(likes - 1, 0) WHERE id = :id");
-            $query->bindParam(':id', $id, PDO::PARAM_INT);
-            $query->execute();
+                    try {
+                        // Charger les images depuis la base de données
+                        $query = $pdo->query("SELECT id, file, likes FROM images");
+                        $images = $query->fetchAll(PDO::FETCH_ASSOC);
 
-            // Récupérer le nouveau nombre de likes
-            $query = $pdo->prepare("SELECT likes FROM images WHERE id = :id");
-            $query->bindParam(':id', $id, PDO::PARAM_INT);
-            $query->execute();
-            $likes = $query->fetchColumn();
+                        foreach ($images as $image) {
+                            ?>
+                            <div class="poster-card">
+                                <img src="images/<?php echo htmlspecialchars($image['file']); ?>" alt="Image">
+                                <h3><?php echo htmlspecialchars(pathinfo($image['file'], PATHINFO_FILENAME)); ?></h3>
+                                <p>Likes : <span id="like-count-<?php echo $image['id']; ?>"><?php echo htmlspecialchars($image['likes']); ?></span></p>
+                                <form action="dislike_action.php" method="POST" class="dislike-form">
+                                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($image['id']); ?>">
+                                    <button type="submit" class="dislike-btn">
+                                        <img src="icons/thumbs-down.png" alt="Dislike">
+                                    </button>
+                                </form>
+                            </div>
+                            <?php
+                        }
+                    } catch (PDOException $e) {
+                        echo '<p class="no-results">Erreur lors du chargement des images : ' . htmlspecialchars($e->getMessage()) . '</p>';
+                    }
+                    ?>
+                </div>
+            </div>
+        </section>
+    </main>
 
-            echo json_encode(['success' => true, 'likes' => $likes, 'message' => 'Le like a été supprimé avec succès par l\'administrateur.']);
-        } catch (PDOException $e) {
-            echo json_encode(['success' => false, 'message' => 'Erreur : ' . $e->getMessage()]);
-        }
-    } else {
-        echo json_encode(['success' => false, 'message' => 'ID invalide.']);
-    }
-} else {
-    echo json_encode(['success' => false, 'message' => 'Requête non autorisée.']);
-}
-?>
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 Gaming Posters. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const dislikeForms = document.querySelectorAll('.dislike-form');
+        dislikeForms.forEach(form => {
+            form.addEventListener('submit', event => {
+                event.preventDefault();
+                const formData = new FormData(form);
+                fetch('dislike_action.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const likeCount = document.getElementById(`like-count-${data.id}`);
+                        likeCount.textContent = data.likes;
+                    } else {
+                        alert(data.message || 'Erreur lors de la suppression du like.');
+                    }
+                })
+                .catch(error => console.error('Erreur:', error));
+            });
+        });
+    });
+    </script>
+</body>
+</html>
