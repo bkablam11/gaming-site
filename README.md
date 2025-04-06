@@ -160,4 +160,4 @@ Ce projet est sous licence MIT. Vous êtes libre de l'utiliser, de le modifier e
 
 ## Aperçu du site 🌐
 
-![Aperçu du site](https://digitalgamesps.com/)
+- **Website** :[digitalgamesps.com](https://digitalgamesps.com/)
