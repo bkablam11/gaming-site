@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 01 avr. 2025 à 21:33
+-- Généré le : dim. 06 avr. 2025 à 14:03
 -- Version du serveur :  10.4.18-MariaDB
 -- Version de PHP : 8.0.3
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `gaming_site`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `admins`
+--
+
+INSERT INTO `admins` (`id`, `username`, `password`) VALUES
+(1, 'admin', '$2y$10$3.vq9jIKczDIXKpqMSSBUOvB2joi5CsAg7QG.otvBqNP1SyZwotAi'),
+(5, 'bkablam11', '$2y$10$5Lv0EuLlJO/CtULAkSHVsOiDBYVGGqlxNd0Rs7tpJP1KuRKXL/wGq');
 
 -- --------------------------------------------------------
 
@@ -61,7 +81,7 @@ INSERT INTO `images` (`id`, `file`, `likes`) VALUES
 (54, 'Forspoken.png', 0),
 (55, 'Ghostrunner 2.png', 0),
 (56, 'God of War® III Remastered.png', 0),
-(57, 'Grand Theft Auto V (PlayStation®5).png', 0),
+(57, 'Grand Theft Auto V (PlayStation®5).png', 1),
 (58, 'Grand Theft Auto V_ Premium Edition.png', 0),
 (59, 'Grand Theft Auto_ The Trilogy – The Definitive Edition (PS5 & PS4).png', 0),
 (60, 'JoJos Bizarre Adventure_ All-Star Battle R Deluxe Edition PS4 & PS5.png', 0),
@@ -121,6 +141,13 @@ INSERT INTO `images` (`id`, `file`, `likes`) VALUES
 --
 
 --
+-- Index pour la table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
 -- Index pour la table `images`
 --
 ALTER TABLE `images`
@@ -129,6 +156,12 @@ ALTER TABLE `images`
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `images`

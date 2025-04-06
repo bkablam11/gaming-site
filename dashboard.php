@@ -8,6 +8,7 @@ include('auth.php'); // Vérifie si l'utilisateur est connecté
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tableau de bord - Admin</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body class="dashboard-page">
     <header class="main-header">
