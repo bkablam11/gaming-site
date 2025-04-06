@@ -17,13 +17,31 @@
             <input type="text" id="username" name="username" required>
 
             <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="password" required>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required>
+                <button type="button" class="toggle-password" onclick="togglePassword('password')">
+                    <img src="icons/eye.svg" alt="Afficher le mot de passe" class="icon">
+                </button>
+            </div>
 
             <label for="confirm_password">Confirmez le mot de passe :</label>
-            <input type="password" id="confirm_password" name="confirm_password" required>
+            <div class="password-container">
+                <input type="password" id="confirm_password" name="confirm_password" required>
+                <button type="button" class="toggle-password" onclick="togglePassword('confirm_password')">
+                    <img src="icons/eye.svg" alt="Afficher le mot de passe" class="icon">
+                </button>
+            </div>
 
             <button type="submit">S'enregistrer</button>
         </form>
+
+        <script>
+            function togglePassword(fieldId) {
+                const field = document.getElementById(fieldId);
+                const type = field.type === 'password' ? 'text' : 'password';
+                field.type = type;
+            }
+        </script>
 
         <p class="switch-page">
             <span class="already-account">Déjà un compte ?</span> <a href="login.php">Connectez-vous ici</a>.
@@ -50,7 +68,7 @@
                     echo '<p class="message error">Ce nom d\'utilisateur est déjà pris.</p>';
                 } else {
                     // Hacher le mot de passe avant de l'insérer dans la base de données
-                    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
                     // Insérer le nouvel admin dans la base de données
                     $stmt = $pdo->prepare("INSERT INTO admins (username, password) VALUES (:username, :password)");

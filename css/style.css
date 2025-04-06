@@ -857,3 +857,32 @@ table tbody td img {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     /* Ombre subtile */
 }
+
+/*Style pour password */
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    flex: 1;
+    padding-right: 30px;
+    /* Espace pour le bouton */
+}
+
+.password-container .toggle-password {
+    position: absolute;
+    right: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.password-container .toggle-password .icon {
+    width: 20px;
+    height: 20px;
+    color: #555;
+}

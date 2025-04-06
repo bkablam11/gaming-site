@@ -37,7 +37,7 @@
                     <input type="text" name="search" placeholder="Rechercher une affiche..." value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
                     <button type="submit">Rechercher</button>
                 </form>
-                <p id="promo-timer" class="promo-timer">Temps restant pour les promotions : <span id="timer"></span></p>
+                <p id="promo-timer" class="promo-timer"><span id="timer"></span></p>
                 <div class="poster-grid">
                     <?php
                     include('dbconnection.php'); // Inclure la connexion à la base de données
@@ -63,7 +63,7 @@
                                 <img src="images/<?php echo htmlspecialchars($row['file']); ?>" alt="Image" class="zoomable-image">
                                 <h3><?php echo htmlspecialchars(pathinfo($row['file'], PATHINFO_FILENAME)); ?></h3>
                                 <div class="actions" style="display: inline-flex; align-items: center; gap: 10px; justify-content: center; margin-top: 10px;">
-                                    <a href="https://wa.me/?text=<?php echo urlencode('Je souhaite commander : ' . pathinfo($row['file'], PATHINFO_FILENAME)); ?>" class="order-btn">Commander</a>
+                                    <a href="<?php echo htmlspecialchars($row['link']); ?>" class="order-btn">Commander</a>
                                     <button class="like-btn" data-id="<?php echo $row['id']; ?>" style="display: flex; align-items: center;">
                                         <img src="icons/thumb-up-blue.png" alt="Pouce bleu" class="like-icon" style="margin-right: 5px;">
                                         <span class="like-count" id="like-count-<?php echo $row['id']; ?>"><?php echo $row['likes']; ?></span> Likes
@@ -114,7 +114,7 @@
                         const likeCount = document.getElementById(`like-count-${posterId}`);
                         likeCount.textContent = data.likes;
                     } else {
-                        alert('Erreur lors de l\'ajout du j\'aime.');
+                        alert('Désolé, vous avez déjà liké cette image.');
                     }
                 })
                 .catch(error => console.error('Erreur:', error));

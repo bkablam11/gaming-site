@@ -16,7 +16,12 @@
             <input type="text" id="username" name="username" required>
 
             <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="password" required>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required>
+                <button type="button" class="toggle-password" onclick="togglePassword('password')">
+                    <img src="icons/eye.svg" alt="Afficher le mot de passe" class="icon">
+                </button>
+            </div>
 
             <button type="submit">Se connecter</button>
         </form>
@@ -28,24 +33,35 @@
         <?php
         session_start();
         include('dbconnection.php');
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['username'];
             $password = $_POST['password'];
 
+            // Rechercher l'utilisateur dans la base de données
             $stmt = $pdo->prepare("SELECT * FROM admins WHERE username = :username");
-            $stmt->execute(['username' => $username]);
+            $stmt->execute([':username' => $username]);
             $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($admin && password_verify($password, $admin['password'])) {
                 // Connexion réussie
                 $_SESSION['admin'] = $admin['username'];
                 header('Location: dashboard.php'); // Rediriger vers le tableau de bord
-                exit;
+                exit; // Arrêter l'exécution du script après la redirection
             } else {
+                // Connexion échouée
                 echo '<p class="message error">Nom d\'utilisateur ou mot de passe incorrect.</p>';
             }
         }
         ?>
     </div>
+
+    <script>
+        function togglePassword(fieldId) {
+            const field = document.getElementById(fieldId);
+            const type = field.type === 'password' ? 'text' : 'password';
+            field.type = type;
+        }
+    </script>
 </body>
 </html>

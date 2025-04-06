@@ -5,6 +5,8 @@ __pycache__/
 .env
 config.php
 images/
+test.php
+catalogue.csv
 # C extensions
 *.so
 
