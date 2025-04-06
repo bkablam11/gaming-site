@@ -1,3 +1,6 @@
+<?php
+include('auth.php'); // Vérifie si l'utilisateur est connecté
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,7 +15,8 @@
     <header class="main-header">
         <div class="container">
             <h1>Supprimer les Likes</h1>
-            <p>Gérez les likes de vos affiches préférées</p>
+            <span class="already-account">Gérez les likes de vos affiches préférées</span> 
+            <a href="logout.php" class="logout-btn">Se déconnecter</a> <!-- Lien de déconnexion -->
         </div>
     </header>
 

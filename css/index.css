@@ -1,0 +1,596 @@
+/* Style général pour le texte */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    /* Couleur de texte par défaut */
+    background-color: #f9f9f9;
+    /* Fond clair pour un meilleur contraste */
+    margin: 0;
+    padding: 0;
+}
+
+/* Style pour les titres principaux */
+h1,
+h2,
+h3 {
+    font-family: 'Roboto', sans-serif;
+    color: #4e54c8;
+    /* Couleur violet-bleu pour les titres */
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Header spécifique à index.php */
+.main-header.index-header {
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    /* Dégradé sombre pour mettre en valeur le logo */
+    color: #00ff00;
+    /* Vert vif pour correspondre au logo */
+    padding: 50px 0;
+    /* Espacement plus généreux pour un design aéré */
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* Ombre plus prononcée pour un effet moderne */
+    border-bottom: 5px solid #00ff00;
+    /* Bordure verte pour rappeler le logo */
+}
+
+.main-header.index-header h1 {
+    font-size: 3.5rem;
+    /* Taille augmentée pour attirer l'attention */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* Espacement entre les lettres pour un effet moderne */
+    color: #ffffff;
+    /* Blanc pour contraster avec le fond sombre */
+    margin-bottom: 10px;
+}
+
+.main-header.index-header p.subtitle {
+    font-size: 1.3rem;
+    /* Taille légèrement augmentée pour une meilleure lisibilité */
+    font-weight: 400;
+    color: #00ff00;
+    /* Vert vif pour correspondre au logo */
+    margin-top: 10px;
+    letter-spacing: 1px;
+    /* Espacement subtil pour un effet élégant */
+}
+
+/* Section des affiches */
+.featured-posters {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f9f9f9, #e3e3e3);
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.featured-posters h2 {
+    font-size: 2.5rem;
+    color: #4e54c8;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Barre de recherche */
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    gap: 15px;
+}
+
+.search-form input[type="text"] {
+    padding: 15px;
+    width: 70%;
+    max-width: 500px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-form input[type="text"]:focus {
+    border-color: #4e54c8;
+    box-shadow: 0 4px 8px rgba(78, 84, 200, 0.2);
+    outline: none;
+}
+
+.search-form button {
+    padding: 15px 30px;
+    background: #4e54c8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-form button:hover {
+    background: #3b45a5;
+    transform: scale(1.05);
+}
+
+/* Grille des affiches */
+.poster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 20px;
+}
+
+/* Carte d'affiche */
+.poster-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.poster-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.poster-card img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.poster-card h3 {
+    font-size: 1.8rem;
+    margin: 15px 0;
+    color: #4e54c8;
+    font-weight: bold;
+}
+
+.poster-card .actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Bouton de commande */
+.order-btn {
+    text-decoration: none;
+    padding: 12px 25px;
+    background-color: #4e54c8;
+    color: white;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.order-btn:hover {
+    background: #3b45a5;
+    transform: scale(1.05);
+}
+
+/* Bouton de like */
+.like-btn {
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.like-btn:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.like-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.like-count {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4e54c8;
+    margin-left: 5px;
+}
+
+/* Conteneur pour le zoom */
+#image-zoom-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+#image-zoom-container.hidden {
+    display: none;
+}
+
+#image-zoom-container img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Bouton de fermeture du zoom */
+#close-zoom {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* Timer des promotions */
+.promo-timer {
+    font-size: 1.8rem;
+    color: #ff4d4d;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Message pour aucun résultat */
+.no-results {
+    font-size: 1.5rem;
+    color: #ff4d4d;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px;
+    background-color: #ffecec;
+    padding: 20px;
+    border: 2px solid #ff4d4d;
+    border-radius: 10px;
+}
+
+/* Footer spécifique à index.php */
+.main-footer {
+    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    /* Dégradé violet-bleu */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #4e54c8;
+}
+
+.main-footer p {
+    font-size: 1rem;
+    color: #e0e0e0;
+    margin: 5px 0;
+}
+
+.main-footer p a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.main-footer p a:hover {
+    color: #dcdcdc;
+}
+
+/* Boutons généraux */
+button,
+.btn {
+    padding: 12px 20px;
+    background: #4e54c8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover,
+.btn:hover {
+    background: #3b45a5;
+    transform: scale(1.05);
+}
+
+/* Liens généraux */
+a {
+    color: #4e54c8;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #3b45a5;
+}
+
+/* Style pour le logo */
+.logo {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Style pour les images zoomables */
+.zoomable-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.zoomable-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Style pour le conteneur général */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style pour les paragraphes */
+p {
+    font-size: 1.1rem;
+    color: #555;
+    /* Couleur légèrement plus claire pour les paragraphes */
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Style pour les actions sous chaque affiche */
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.actions a,
+.actions button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.actions a {
+    background: #4e54c8;
+    color: white;
+    border: none;
+}
+
+.actions a:hover {
+    background: #3b45a5;
+    transform: scale(1.05);
+}
+
+.actions button {
+    background: #f9f9f9;
+    color: #333;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.actions button:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+}
+
+/* Style général pour le texte */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    /* Couleur de texte par défaut */
+    background-color: #f9f9f9;
+    /* Fond clair pour un meilleur contraste */
+    margin: 0;
+    padding: 0;
+}
+
+/* Style pour les titres principaux */
+h1,
+h2,
+h3 {
+    font-family: 'Roboto', sans-serif;
+    color: #4e54c8;
+    /* Couleur violet-bleu pour les titres */
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Style pour le titre principal */
+.main-header.index-header h1 {
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.main-header.index-header p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #dcdcdc;
+    margin-top: 10px;
+}
+
+/* Style pour les sous-titres */
+.featured-posters h2 {
+    font-size: 2.5rem;
+    color: #4e54c8;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Style pour les paragraphes */
+p {
+    font-size: 1.1rem;
+    color: #555;
+    /* Couleur légèrement plus claire pour les paragraphes */
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Style pour le texte des boutons */
+button,
+.btn,
+.order-btn {
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Style pour les messages d'alerte */
+.no-results {
+    font-size: 1.5rem;
+    color: #ff4d4d;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px;
+    background-color: #ffecec;
+    padding: 20px;
+    border: 2px solid #ff4d4d;
+    border-radius: 10px;
+}
+
+/* Style pour le texte du footer */
+.main-footer p {
+    font-size: 1rem;
+    color: #e0e0e0;
+    margin: 5px 0;
+}
+
+.main-footer p a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.main-footer p a:hover {
+    color: #dcdcdc;
+}
+
+/* Style pour les likes */
+.like-count {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4e54c8;
+    margin-left: 5px;
+}
+
+/* Style pour le sous-titre */
+.subtitle {
+    font-size: 1.5rem;
+    /* Taille de police légèrement augmentée */
+    font-weight: 300;
+    /* Poids de police léger pour un aspect élégant */
+    color: #dcdcdc;
+    /* Couleur gris clair pour un contraste doux */
+    text-align: center;
+    /* Centrer le texte */
+    margin-top: 10px;
+    /* Espacement au-dessus */
+    margin-bottom: 20px;
+    /* Espacement en dessous */
+    letter-spacing: 1px;
+    /* Espacement entre les lettres pour un effet moderne */
+}
+
+/* Section "Comment commander" */
+.how-to-order {
+    background: linear-gradient(135deg, #f9f9f9, #e3e3e3);
+    /* Fond clair avec un dégradé subtil */
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.how-to-order h2 {
+    font-size: 2.5rem;
+    color: #4e54c8;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.how-to-order ol {
+    list-style: decimal inside;
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.8;
+    text-align: left;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.how-to-order ol li {
+    margin-bottom: 15px;
+}
+
+.how-to-order a {
+    color: #4e54c8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.how-to-order a:hover {
+    text-decoration: underline;
+}

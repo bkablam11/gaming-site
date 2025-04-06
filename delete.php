@@ -1,4 +1,8 @@
 <?php
+include('auth.php'); // Vérifie si l'utilisateur est connecté
+?>
+
+<?php
 // filepath: d:\ProgramFiles\xampp\htdocs\gaming-site\delete.php
 
 include('dbconnection.php');
@@ -55,9 +59,9 @@ try {
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <div class="container">
+    <div class="delete-container">
         <h1>Supprimer une affiche</h1>
-
+<a href="logout.php" class="logout-btn">Se déconnecter</a> <!-- Lien de déconnexion -->
         <?php if (isset($successMessage)): ?>
             <p class="message success"><?php echo $successMessage; ?></p>
         <?php elseif (isset($errorMessage)): ?>

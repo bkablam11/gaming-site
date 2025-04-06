@@ -1,4 +1,8 @@
 <?php
+include('auth.php'); // Vérifie si l'utilisateur est connecté
+?>
+
+<?php
 // Dossier où les images seront enregistrées
 $targetDir = "images/";
 include('dbconnection.php');
@@ -48,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="upload-container">
         <img src="logo/logo.png" alt="Gaming Logo" class="logo">
         <h1>Upload d'images</h1>
+        <a href="logout.php" class="logout-btn">Se déconnecter</a> <!-- Lien de déconnexion -->
         <p>Ajoutez des images de vos jeux PS4 et PS5 préférés avec une description.</p>
         <form method="POST" enctype="multipart/form-data">
             <label for="images">Choisissez des images :</label>

@@ -4,18 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaming Posters - Affiches PS4/PS5</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-<body>
+<body class="index-page">
     <header class="main-header index-header">
         <div class="container">
             <img src="logo/logo.png" alt="Gaming Posters Logo" class="logo">
             <h1>Digital Games PS+</h1>
-            <p>Affiches exclusives pour jeux PS4 et PS5</p>
+            <p class="subtitle">Affiches exclusives pour jeux PS4 et PS5</p>
         </div>
     </header>
+
+    <!-- Section "Comment commander ?" mise en haut -->
+    <section class="how-to-order">
+        <div class="container">
+            <h2>Comment commander ?</h2>
+            <ol>
+                <li>Enregistrez le numéro <strong>DIGITAL GAMES</strong> : <a href="tel:+2250502781970">+225 05 02 78 19 70</a>.</li>
+                <li>Cliquez sur le bouton <strong>Commander</strong> pour envoyer un message au numéro DIGITAL GAMES avec le jeu choisi.</li>
+                <li>Vous pouvez également <strong>liker</strong> les jeux que vous souhaitez acheter plus tard. Les jeux ayant le plus de likes seront priorisés pour les réservations.</li>
+            </ol>
+        </div>
+    </section>
 
     <main>
         <section class="featured-posters">
@@ -80,9 +92,8 @@
     </main>
 
     <footer class="main-footer">
-        <div class="container">
-            <p>Contact: +225 05 02 78 19 70</p>
-            <p>© 2025 Gaming Posters. Tous droits réservés.</p>
+            <p class="subtitle">Contact: +225 05 02 78 19 70</p>
+            <p  class="subtitle">© 2025 Gaming Posters. Tous droits réservés.</p>
         </div>
     </footer>
 
